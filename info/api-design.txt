@@ -14,7 +14,8 @@ response:
     prevPage: #link
 }
 
-GET users/{username}/
+# FIXME: make sense to use username there
+GET users/{id}/ 
 
 {
     'status': 'ok'

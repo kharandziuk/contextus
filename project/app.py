@@ -7,11 +7,11 @@ import handlers
 
 from tornado_routes import make_handlers, include
 
-URL_PREFIX = 'api-v1/'
+URL_PREFIX = ''
 
 handlers = make_handlers(
     URL_PREFIX,
-    (r'', include('handlers')),
+    (r'api-v1/', include('handlers')),
 )
 application = tornado.web.Application(
     handlers

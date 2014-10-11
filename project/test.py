@@ -10,7 +10,13 @@ from backend import db
 from app import reverse_url
 
 
-class TestSequenceFunctions(LogTrapTestCase):
+class PostsTestCase(LogTrapTestCase):
+
+    def test_url(self):
+        self.assertEqual(
+            '/api-v1/posts',
+            reverse_url('posts'),
+        )
     def test_get(self):
         db.query(models.Post).delete()
         db.commit()
