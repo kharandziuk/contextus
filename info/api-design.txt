@@ -1,0 +1,14 @@
+GET users/
+response:
+{
+    users: [
+        {
+            username: #name
+            ...
+        }
+        ...
+    ]
+    count: 1
+    nextPage: #link
+    prevPage: #link
+}
