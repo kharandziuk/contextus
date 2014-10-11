@@ -4,12 +4,12 @@ from tornado_routes import route
 
 
 @route('/posts', name='posts')
-class PostHandler(BaseHandler):
+class PostsHandler(BaseHandler):
     def get(self):
         db = self.backend.get_session()
         posts = db.query(models.Post).all()
         self.write({
-            'posts': serializers.PostSerializer(posts, many=True).data,
+            'results': serializers.PostSerializer(posts, many=True).data,
             'status': 'ok'
         })
         db.close()
@@ -24,4 +24,3 @@ class PostHandler(BaseHandler):
         db.commit()
         self.write({'status': 'ok'})
         db.close()
-

@@ -9,4 +9,12 @@ class PostFactory(Factory):
         model = models.Post
         sqlalchemy_session = db
 
-    body = 'text'
+    body = factory.Sequence(lambda x: 'post {}'.format(x))
+
+
+class UserFactory(Factory):
+    class Meta:
+        model = models.User
+        sqlalchemy_session = db
+
+    username = factory.Sequence(lambda x: 'username{}'.format(x))
