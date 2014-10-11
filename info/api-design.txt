@@ -18,7 +18,7 @@ response:
 GET users/{id}/ 
 
 {
-    'status': 'ok'
+    status': ok
     user: {
             username: #name
     }
