@@ -1,11 +1,11 @@
-import json
-from datetime import date
 import tornado.escape
 import tornado.ioloop
-import tornado.web
-import handlers
+from tornado import web
+import os
 
 from tornado_routes import make_handlers, include
+
+ROOT = os.getcwd()
 
 URL_PREFIX = ''
 
@@ -13,7 +13,7 @@ handlers = make_handlers(
     URL_PREFIX,
     (r'api-v1/', include('handlers')),
 )
-application = tornado.web.Application(
+application = web.Application(
     handlers
 )
 
