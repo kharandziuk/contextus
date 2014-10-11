@@ -1,5 +1,6 @@
 import models, serializers
 from base_handler import BaseHandler
+from tornado_routes import route
 
 
 @route('/posts', name='posts')

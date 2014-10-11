@@ -5,18 +5,20 @@ import tornado.ioloop
 import tornado.web
 import handlers
 
-from tornado_routes import make_handlers
+from tornado_routes import make_handlers, include
 
-URL_PREFIX = 'api-v1'
+URL_PREFIX = 'api-v1/'
 
 handlers = make_handlers(
     URL_PREFIX,
-    (r'/', include('handlers')),
+    (r'', include('handlers')),
 )
 application = tornado.web.Application(
     handlers
 )
- 
+
+reverse_url = application.reverse_url
+
 if __name__ == "__main__":
     application.listen(8888)
     tornado.ioloop.IOLoop.instance().start()

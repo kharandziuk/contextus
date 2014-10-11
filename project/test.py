@@ -7,6 +7,7 @@ import tornado.wsgi
 
 import models, factories
 from backend import db
+from app import reverse_url
 
 
 class TestSequenceFunctions(LogTrapTestCase):
@@ -15,16 +16,15 @@ class TestSequenceFunctions(LogTrapTestCase):
         db.commit()
         post = factories.PostFactory()
         db.commit()
-        assert post.body
         app = TestApp(tornado.wsgi.WSGIAdapter(application))
-        resp = app.get('/posts')
+        resp = app.get(reverse_url('posts'))
         actual = resp.json
         self.assertItemsEqual(actual['posts'], [{'body': post.body}])
         self.assertEqual(resp.status_code, 200)
 
     def test_post(self):
         app = TestApp(tornado.wsgi.WSGIAdapter(application))
-        resp = app.post('/posts', params={'body': 'some text'})
+        resp = app.post(reverse_url('posts'), params={'body': 'some text'})
         self.assertEqual(resp.status_code, 200)
 
 if __name__ == "__main__":
