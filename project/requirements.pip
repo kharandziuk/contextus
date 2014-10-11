@@ -1,0 +1,14 @@
+tornado
+#tornado-routes
+tornado-json
+pynamodb
+boto
+WebTest
+requests
+alembic
+wtforms
+wtforms-json
+marshmallow
+factory_boy
+git+https://github.com/troolee/tornado-routes.git@master
+
