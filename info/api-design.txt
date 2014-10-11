@@ -1,6 +1,7 @@
 GET users/
 response:
 {
+    status: 'ok'
     users: [
         {
             username: #name
@@ -12,3 +13,13 @@ response:
     nextPage: #link
     prevPage: #link
 }
+
+GET users/{username}/
+
+{
+    'status': 'ok'
+    user: {
+            username: #name
+    }
+}
+
